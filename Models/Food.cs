@@ -7,20 +7,30 @@ namespace FoodOrder.Models
     {
         [Key]
         public int FoodId { get; set; }
+
         [Required]
-        [StringLength(25, ErrorMessage = "The names length must be between 1 and 25!")]
         [Display(Name = "Étel neve")]
+        [StringLength(25, ErrorMessage = "The names length must be between 1 and 25!")]
         public string Name { get; set; }
+
         [Required]
         [Display(Name = "Ár")]
         public int Price { get; set; }
+
+        [Required]
         [Display(Name = "Leírás")]
         public string Description { get; set; }
+
         [Required]
+        [Display(Name = "Étel típusa")]
         public FoodType FoodType { get; set; }
-        [Display(Name = "Kép")]
-        public string PathToImage { get; set; }
+
         [Required]
+        [Display(Name = "Vegetáriánus étel?")]
         public bool IsVegetarian { get; set; }
+
+        [Required]
+        [Display(Name = "Kép (URL)")]
+        public string PathToImage { get; set; }
     }
 }

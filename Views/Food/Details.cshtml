@@ -1,0 +1,66 @@
+﻿@using FoodOrder.Data.Enums;
+@model Food
+
+@{
+    ViewData["Title"] = "Új étel hozzáadása";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Részletek: @Model.Name</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div class="form-group text-center">
+                    <img id="foodPicturePreview" style="max-width: 250px" />
+                </div>
+                <div class="form-group" style="padding-bottom: 15px;">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" readonly />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="padding-bottom: 15px;">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" readonly />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="padding-bottom: 15px;">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" readonly />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="padding-bottom: 15px;">
+                    <label asp-for="FoodType" class="control-label"></label>
+                    <input asp-for="FoodType" class="form-control" readonly />
+                    <span asp-validation-for="FoodType" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="padding-bottom: 15px;">
+                    <label asp-for="IsVegetarian" class="control-label"></label>
+                    <input asp-for="IsVegetarian" class="form-control" readonly />
+                    <span asp-validation-for="IsVegetarian" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="padding-bottom: 50px;">
+                    <label asp-for="PathToImage" class="control-label"></label>
+                    <input asp-for="PathToImage" class="form-control" readonly />
+                    <span asp-validation-for="PathToImage" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" style="text-align: right;">
+                    <a class="btn btn-outline-secondary" asp-action="Index">Összes étel</a>
+                    <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.FoodId"></a>
+                    <input type="submit" value="Hozzáad" class="btn btn-outline-success float-right" readonly />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('foodPicturePreview');
+            output.src = $("#PathToImage").val();
+        })
+    </script>
+}

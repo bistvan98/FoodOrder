@@ -1,0 +1,74 @@
+﻿@using FoodOrder.Data.Enums;
+@model Food
+
+@{
+    ViewData["Title"] = "Új étel hozzáadása";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Új étel hozzáadása</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group text-center">
+                        <img id="foodPicturePreview" style="max-width: 250px" />
+                    </div>
+                    <div class="form-group" style="padding-bottom: 15px;">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="padding-bottom: 15px;">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="padding-bottom: 15px;">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="padding-bottom: 15px;">
+                        <label asp-for="FoodType" class="form-label"></label>
+                        <select class="form-select" asp-items="Html.GetEnumSelectList<FoodType>()"></select>
+                    </div>
+                    <div class="form-group" style="padding-bottom: 15px;">
+                        <label asp-for="IsVegetarian" class="form-label"></label>
+                        <select class="form-select">
+                            <option value="false.ToString()">Nem</option>
+                            <option value="true.ToString()">Igen</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="padding-bottom: 50px;">
+                        <label asp-for="PathToImage" class="control-label"></label>
+                        <input asp-for="PathToImage" class="form-control" />
+                        <span asp-validation-for="PathToImage" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" style="text-align: right;">                     
+                        <a class="btn btn-outline-secondary" asp-action="Index">Összes étel</a>
+                        <input type="submit" value="Hozzáad" class="btn btn-outline-success float-right" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            var output = document.getElementById('foodPicturePreview');
+            output.src = $("#PathToImage").val();
+        })
+
+        $("#PathToImage").on("change", function() {
+            var output = document.getElementById('foodPicturePreview');
+            output.src = $(this).val();
+        })
+    </script>
+}

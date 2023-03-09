@@ -2,14 +2,14 @@
 {
     public enum FoodType
     {
-        HAMBURGER,
-        PIZZA,
-        GYROS,
-        SOUP,
-        DESSERT,
-        READYMEAL,
-        FRESHLYBAKED,
-        SIDEDISH,
-        DRINK
+        Hamburger,
+        Pizza,
+        Gyros,
+        Leves,
+        Desszert,
+        Készétel,
+        Frissensült,
+        Köret,
+        Ital
     }
 }

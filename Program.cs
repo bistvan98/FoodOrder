@@ -1,4 +1,5 @@
 using FoodOrder.Data;
+using FoodOrder.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace FoodOrder
@@ -11,6 +12,9 @@ namespace FoodOrder
 
             //DbContext configuration
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+
+            //Services configuration
+            builder.Services.AddScoped<IFoodService, FoodService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
