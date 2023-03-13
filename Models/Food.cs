@@ -1,12 +1,14 @@
-﻿using FoodOrder.Data.Enums;
+﻿using FoodOrder.Data.Base;
+using FoodOrder.Data.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace FoodOrder.Models
 {
-    public class Food
+    public class Food : IEntityBase
     {
         [Key]
-        public int FoodId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "Étel neve")]

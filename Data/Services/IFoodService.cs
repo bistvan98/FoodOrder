@@ -1,13 +1,10 @@
-﻿using FoodOrder.Models;
+﻿using FoodOrder.Data.Base;
+using FoodOrder.Models;
 
 namespace FoodOrder.Data.Services
 {
-    public interface IFoodService
+    public interface IFoodService : IEntityBaseRepository<Food>
     {
-        Task<IEnumerable<Food>> GetAllAsync();
-        Task<Food> GetByIdAsync(int id);
-        Task AddAsync(Food food);
-        Food Update(int  id, Food updatedFood);
-        void Delete(int id);
+            
     }
 }

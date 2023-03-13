@@ -1,5 +1,6 @@
 ﻿using FoodOrder.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace FoodOrder.Data
 {
@@ -7,10 +8,9 @@ namespace FoodOrder.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-
         }
 
-        public DbSet<Restaurant> Restaurants { get; set;}
-        public DbSet<Food> Foods { get; set;}
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Food> Foods { get; set; }
     }
 }

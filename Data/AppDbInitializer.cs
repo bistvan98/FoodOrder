@@ -26,7 +26,7 @@ namespace FoodOrder.Data
                             PathToLogo = "https://img.freepik.com/premium-vector/pizza-logo-design_9845-319.jpg",
                             openTime = 8,
                             closeTime = 19
-                        }   
+                        }
                     });
 
                     context.SaveChanges();

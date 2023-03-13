@@ -1,5 +1,6 @@
 ﻿using FoodOrder.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FoodOrder.Controllers
 {
@@ -12,9 +13,9 @@ namespace FoodOrder.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var allRestaurants = _context.Restaurants.ToList();
+            var allRestaurants = await _context.Restaurants.ToListAsync();
             return View(allRestaurants);
         }
     }

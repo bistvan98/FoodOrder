@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace FoodOrder.Models
 {
     public class Restaurant
     {
         [Key]
-        public int RestaurantId { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "The names length must be between 1 and 50!")]
         [Display(Name = "Név")]
@@ -28,19 +29,5 @@ namespace FoodOrder.Models
         //Relationship
         public List<Food> Foods { get; set; }
 
-        public static List<Restaurant> listRestaurants(List<Restaurant> restaurants, string town)
-        {
-            List<Restaurant> foundRestaurants = new List<Restaurant>();
-
-            for(int i = 0; i < restaurants.Count; i++)
-            {
-                if (restaurants[i].town == town)
-                {
-                    foundRestaurants.Add(restaurants[i]);
-                }
-            }
-
-            return foundRestaurants;
-        }
     }
 }

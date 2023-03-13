@@ -24,11 +24,11 @@ namespace FoodOrder.Migrations
 
             modelBuilder.Entity("FoodOrder.Models.Food", b =>
                 {
-                    b.Property<int>("FoodId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -55,7 +55,7 @@ namespace FoodOrder.Migrations
                     b.Property<int?>("RestaurantId")
                         .HasColumnType("int");
 
-                    b.HasKey("FoodId");
+                    b.HasKey("Id");
 
                     b.HasIndex("RestaurantId");
 
@@ -64,11 +64,11 @@ namespace FoodOrder.Migrations
 
             modelBuilder.Entity("FoodOrder.Models.Restaurant", b =>
                 {
-                    b.Property<int>("RestaurantId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RestaurantId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("PathToLogo")
                         .IsRequired()
@@ -97,7 +97,7 @@ namespace FoodOrder.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("RestaurantId");
+                    b.HasKey("Id");
 
                     b.ToTable("Restaurants");
                 });
